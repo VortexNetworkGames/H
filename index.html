@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        const userData = {
+            "users": {
+                "user1": {
+                    "password": "senhaUser1",
+                    "role": "user"
+                },
+                "user2": {
+                    "password": "senhaUser2",
+                    "role": "user"
+                }
+            },
+            "admins": {
+                "admin1": {
+                    "password": "senhaAdmin1",
+                    "role": "admin"
+                },
+                "admin2": {
+                    "password": "senhaAdmin2",
+                    "role": "admin"
+                }
+            }
+        };
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (userData.users.hasOwnProperty(username)) {
+                if (userData.users[username].password === password) {
+                    alert("Login bem-sucedido como usuário " + username);
+                    window.location.href = "/dashboard.html"; // Redireciona para a página de painel do usuário
+                } else {
+                    alert("Senha incorreta");
+                }
+            } else if (userData.admins.hasOwnProperty(username)) {
+                if (userData.admins[username].password === password) {
+                    alert("Login bem-sucedido como administrador " + username);
+                    window.location.href = "/dashboard.html"; // Redireciona para a página de painel do administrador
+                } else {
+                    alert("Senha incorreta");
+                }
+            } else {
+                alert("Usuário não encontrado");
+            }
+        });
+    </script>
+</body>
+</html>

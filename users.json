@@ -1,0 +1,22 @@
+{
+  "users": {
+    "user1": {
+      "password": "senhaUser1",
+      "role": "user"
+    },
+    "user2": {
+      "password": "senhaUser2",
+      "role": "user"
+    }
+  },
+  "admins": {
+    "admin1": {
+      "password": "senhaAdmin1",
+      "role": "admin"
+    },
+    "admin2": {
+      "password": "senhaAdmin2",
+      "role": "admin"
+    }
+  }
+}
